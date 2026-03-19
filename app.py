@@ -70,9 +70,18 @@ def scrape_city_info(url):
     }
 
     results = {}
-    for key, pattern in infobox_patterns.items():
-        match = re.search(pattern, text)
-        results[key] = match.group(1).strip() if match else "Not found"
+    for key, pattern_dict in patterns.items():
+        text = locals().get(key)
+        if text:
+            for label, pattern in pattern_dict.items():
+                match = re.search(pattern, text)
+                if match:
+                    results[label] = match.group(1).strip()
+                else:
+                    results[label] = "Not found"
+        else:
+            for label in pattern_dict.keys():
+                results[label] = "Not found"
 
     return results
 
