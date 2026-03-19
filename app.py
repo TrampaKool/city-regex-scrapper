@@ -12,6 +12,7 @@ def scrape_city_info(url):
 
     soup = BeautifulSoup(response.text, 'html.parser')
 
+    # find coordinates text
     coords_span = soup.find('span', id='coordinates')
     coords_text = None
 
@@ -22,7 +23,7 @@ def scrape_city_info(url):
     if not infobox:
         return "infobox not found"
     
-
+    # find infobox text
     infobox_text = infobox.get_text(separator=" ", strip=True)
 
     # find temperature table
