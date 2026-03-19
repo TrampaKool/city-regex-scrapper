@@ -8,13 +8,14 @@ def scrape_city_info(url):
         response = requests.get(url, headers=headers)
         response.raise_for_status()
     except Exception as e:
-        return f"Σφάλμα κατά τη σύνδεση: {e}"
+        return f"error: {e}"
 
     soup = BeautifulSoup(response.text, 'html.parser')
     
     infobox = soup.find("table", {"class": "infobox"})
     if not infobox:
-        return "Δεν βρέθηκε Infobox στη σελίδα."
+        return "infobox not found"
+    
 
     text = infobox.get_text(separator=" ", strip=True)
 
@@ -50,7 +51,7 @@ if __name__ == "__main__":
     user_url = input("Εισάγετε το URL της Wikipedia για μια πόλη: ")
     data = scrape_city_info(user_url)
     
-    print("\n--- Αποτελέσματα Εξαγωγής ---")
+    print("\n--- Αποτελέσματα ---")
     if isinstance(data, dict):
         for k, v in data.items():
             print(f"{k}: {v}")
