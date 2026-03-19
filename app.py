@@ -50,6 +50,7 @@ def scrape_city_info(url):
                 last_cell = row_cells[-1] if row_cells else None
                 if last_cell:
                     average_temperature_text = last_cell.get_text(strip=True)
+                break
     else:
         print("climate table not found.")
 
@@ -71,7 +72,7 @@ def scrape_city_info(url):
         },
 
         "average_temperature_text": {
-            "Θερμοκρασία (Μέση)": r"(\d{1,2}(?:\.\d)?)\s*(?:°C|°F)"
+            "Θερμοκρασία (Μέση)": r"(\d+(?:[.,]\d+)?)"
         },
 
         "coords_text": {
