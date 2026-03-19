@@ -11,6 +11,12 @@ def scrape_city_info(url):
         return f"error: {e}"
 
     soup = BeautifulSoup(response.text, 'html.parser')
+
+    coords_span = soup.find('span', id='coordinates')
+    coords_text = None
+
+    if coords_span:
+        coords_text = coords_span.get_text(strip=True)
     
     infobox = soup.find("table", {"class": "infobox"})
     if not infobox:
