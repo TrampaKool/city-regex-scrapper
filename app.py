@@ -46,7 +46,9 @@ def scrape_city_info(url):
     else:
         print("climate table not found.")
 
-    
+    #find first heading text
+    first_heading = soup.find('h1', {'id': 'firstHeading'})
+    first_heading_text = first_heading.get_text(strip=True) if first_heading else "Not found"
 
     patterns = {
         "infobox_text": {
