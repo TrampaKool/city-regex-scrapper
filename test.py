@@ -9,6 +9,10 @@ urls = [
     "https://el.wikipedia.org/wiki/Παρίσι",
     "https://el.wikipedia.org/wiki/Νέα_Υόρκη",
     "https://el.wikipedia.org/wiki/Τόκιο",
+    "https://el.wikipedia.org/wiki/Βαρκελώνη",
+    "https://el.wikipedia.org/wiki/Σικάγο",
+    "https://el.wikipedia.org/wiki/Λονδίνο",
+    "https://el.wikipedia.org/wiki/Σιγκαπούρη",
 
 ]
 
