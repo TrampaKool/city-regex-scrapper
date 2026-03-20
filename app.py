@@ -103,6 +103,7 @@ def scrape_city_info(url):
 
 if __name__ == "__main__":
     user_url = input("Εισάγετε το URL της Wikipedia για μια πόλη: ")
+    print("\n\n")
     data = scrape_city_info(user_url)
     
     print("\n--- Αποτελέσματα ---")
